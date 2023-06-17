@@ -1,21 +1,28 @@
 import PropTypes from "prop-types";
 
-export default function Pizza({ name, ingredients, route, price }) {
+export default function Pizza({ product }) {
+  const { name, ingredients, photoName, price, soldOut } = product;
+
+  if (soldOut) return null;
+
   return (
-    <div className="pizza">
-      <img src={route} alt={name} />
+    <li className="pizza">
+      <img src={photoName} alt={name} />
       <div>
         <h3>{name}</h3>
         <p>{ingredients}</p>
         <span>{price}</span>
       </div>
-    </div>
+    </li>
   );
 }
 
 Pizza.propTypes = {
-  name: PropTypes.string.isRequired,
-  ingredients: PropTypes.string.isRequired,
-  route: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  product: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    ingredients: PropTypes.string.isRequired,
+    photoName: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    soldOut: PropTypes.number.isRequired,
+  }),
 };
