@@ -7,11 +7,18 @@ export default function Menu({ data }) {
       <h2>Our Menu</h2>
 
       {data.length > 0 ? (
-        <ul className="pizzas">
-          {data.map((pizza) => (
-            <Pizza key={pizza.name} product={pizza} />
-          ))}
-        </ul>
+        <>
+          <p>
+            Authentic Italian cuisine. 6 creative dishes to choose from. All
+            from our stone oven, all organic, all delicious.
+          </p>
+
+          <ul className="pizzas">
+            {data.map((pizza) => (
+              <Pizza key={pizza.name} product={pizza} />
+            ))}
+          </ul>
+        </>
       ) : (
         <p>We're still working on our menu. Please come back later :)</p>
       )}
