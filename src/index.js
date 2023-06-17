@@ -56,7 +56,7 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <Menu items={pizzaData} />
+      <Menu data={pizzaData} />
       <Footer />
     </div>
   );
