@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import Pizza from "./components/Pizza";
+import Header from "./components/Layout/Header";
+import Menu from "./components/Layout/Menu";
+import Footer from "./components/Layout/Footer";
+
+import "./index.css";
 
 const pizzaData = [
   {
@@ -50,16 +54,11 @@ const pizzaData = [
 
 function App() {
   return (
-    <>
-      <h1>Your choice of best pizza!</h1>
-      {pizzaData.map((pizza) => (
-        <Pizza
-          name={pizza.name}
-          ingredients={pizza.ingredients}
-          route={pizza.photoName}
-        />
-      ))}
-    </>
+    <div className="container">
+      <Header />
+      <Menu items={pizzaData} />
+      <Footer />
+    </div>
   );
 }
 
