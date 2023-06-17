@@ -3,15 +3,13 @@ import PropTypes from "prop-types";
 export default function Pizza({ product }) {
   const { name, ingredients, photoName, price, soldOut } = product;
 
-  if (soldOut) return null;
-
   return (
-    <li className="pizza">
+    <li className={`pizza ${soldOut && "sold-out"}`}>
       <img src={photoName} alt={name} />
       <div>
         <h3>{name}</h3>
         <p>{ingredients}</p>
-        <span>{price}</span>
+        <span>{soldOut ? <strike>SOLD OUT</strike> : price}</span>
       </div>
     </li>
   );
